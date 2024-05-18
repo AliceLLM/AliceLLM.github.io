@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<!--
+	Theory by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Theory by TEMPLATED</title>
+		<meta charset="utf-8">
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="assets/css/main.css">
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="header"><div class="inner">
+			<a href="index.html" class="logo">
+				<img src="images/Alice Logo.jpg" alt="Pic 01" width="50" height="50">
+			</a>
+			<nav id="nav"><a href="index.html">About</a>
+				<a href="alice.html">ALICE</a>
+				<a href="publications.html">Publications</a>
+				<a href="team.html">Team</a>
+			</nav><a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+			</div>
+		</div>
+		</header>
+		<!-- Banner -->
+		<section id="banner">
+			<!-- <h1>Welcome to Theory</h1> -->
+			<h1>Welcome to ALICE</h1>
+			<p>ALICE: Aligning Language models with Interactive Code Execution.</p>
+		</section>
+
+			<!-- Main -->
+			<!-- <section id="main" class="wrapper"><div class="inner"> -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Background</h2>
+					</header>
+
+					<!-- <p>Code generation with LLMs</p> -->
+					<p>Code generation with Large Language Models (LLMs) has been widely adapted by the following two category of design.</p>
+					<ul>
+						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
+							Copilot: this design allows users to input documentation comments and convert them into 
+							code. Users can modify, run, and debug the code as they would in typical software development 
+							processes, making it a highly controllable system.
+						</li>
+						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
+							Autonomous agents: this approach focuses on generating entire code scripts to fulfill
+							user instructions. Typically, models within this system interact and utilize tools
+							to search, execute, and debug the code they generate, continuing until a solution
+							is achieved or a maximum trial limit is reached. This method is considerably
+							uncontrollable due to minimal interaction between the user and the agent system.
+						</li>
+					</ul>
+					<p>
+						Bridging the functionalities of Copilot and Autonomous Agents, ALICE enables coding
+						in natural language and is specifically engineered to enhance efficiency in following in-
+						structions within interactive environments. Unlike autonomous agents, which operate
+						independently of human input and learn from experiences to determine optimal actions,
+						ALICE actively identifies potential issues during execution and solicits clarifying questions.
+						Through iterative interactions, ALICE delivers results that are more precise and better
+						aligned with user requirements.
+					</p>
+				</div>
+			</section>
+			
+			<!-- 2 Mehtod -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Method</h2>
+					</header>
+
+					<p>
+						We focus on code execution with LLMs in game engines like Unity, leveraging the fully
+						controllable, observable, and modularized virtual environment they provide. We propose
+						an efficient meta-agent collaboration framework named ALICE, designed to follow user
+						instructions through active communication, aligning with their intentions, and generating
+						code based on continuous feedback and interaction. This section will discuss 3 main
+						components of ALICE, Controller LLM, Intent LLM and Execution LLM.
+					</p>
+				</div>
+			</section>
+
+			<!-- 2.1 Controller LLM for Communication -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Controller LLM for Communication</h2>
+					</header>
+
+					<p>We start by delineating what we mean by constructing a meta-agent collaboration. </p>
+					<p>
+						Existing multi-agent collaboration frameworks like AutoGenWu et al. (2023), MetaGPT
+						Hong et al. (2023a) and AutoGPT operate under the premise that each agent or LLM is
+						pre-defined to be equipped with specific roles, or instruction prompts that dictate their
+						responses to given instructions. These roles often include tool-use capabilities, and the
+						agents are designed by humans to communicate in specific ways. This design approach
+						relies heavily on carefully crafted prompts and does not adapt well to different environments.
+						Conversely, frameworks tailored for specific settings like Stanford Town Park et al. (2023a)
+						or GPT-engineer are overly specialized and fail to generalize across various domains.
+					</p>
+					<p>
+						We propose a novel meta-agent collaboration framework as the follows. Specifically, we setup
+						a controller LLM with the following fixed operations that manage and interact with a suite of
+						intention LLMs, which can be treated as general LLM agents seen in other frameworks.
+					</p>
+					<ul>
+						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
+						Create/Edit/Delete: modifying another controller’s instruction prompt, creating or
+						deleting a new controller by writing done its instruction prompt.
+						</li>
+						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
+						Route Setup: setup communication route for a new intention LLM to interact with
+						other intention LLMs it controls.
+						</li>
+						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
+						Call: send instruction to one intention LLM under its control.
+						</li>
+					</ul>
+					<p>
+						This configuration enables the controller LLM to act as the creator of other LLMs, which are
+						essentially LLMs with different instruction prompt. Note that the LLMs it create are also
+						controllers, i.e. they are equipped with the same 3 operations as their parent controller. The
+						controller LLMs do not do any task, instead, they are communicators with other LLMs and
+						the user. An example of a controller LLM is in Figure 2.
+					</p>
+				</div>
+			</section>
+
+			<!-- 2.2 Intent LLM for Alignment -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Intent LLM for Alignment</h2>
+					</header>
+
+					<p>
+						Intent LLMs are named by their nature of following personalized instructions. Each intent
+						LLM is in charge of all the changes of a special code script, that is called a game component,
+						and a execution LLM.
+					</p>
+					<p>
+						Game Components Physic engines usually use a component-based architecture, where
+						each object in the virtual scene can have various components attached to them that perform
+						operations in parallel. This modular approach allows developers to compose behavior and
+						properties by attaching different components to objects, such as renderers, scripts, colliders,
+						or custom components. A game component is a script that an object can have, for example, a
+						Terrain.cs script defines how an area of geographic structure is rendered, containing methods
+						(tools) to create trees, grass and mountains. It can be treated as a class of any API library.
+						As such, we attach a fine-tunable LLM to each API script we care about, by reading its
+						class documentation in its declaration, attribute getter and setter, to each method (function)
+						example usage as part of the model prompt.
+					</p>
+
+					<p>
+						The intent LLM is equipped with the following operations.
+					</p>
+					<ul>
+						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
+							Create/Edit/Delete: modifying tools from the API it is in charge of, for example,
+							it can add or delete a RAG or add a vision feedback system for the Terrain.cs API
+							when it see fits to reduce memory overhead or boost execution LLM’s performance.
+						</li>
+						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
+							Route Setup: create inherited scripts from existing APIs, which creates new intent
+							LLM, upon doing this, it must ask the controller LLM for the communication route
+							of the new intention.
+						</li>
+						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
+							Call: call into the execution LLM with the task it should do.
+						</li>
+					</ul>
+					<p>
+						This setup allows the intent LLM to be a creator for code scripts, especially higher-level codes
+						from existing codes. We can analogy this design to the idea of skill library in Voyager (insert
+						link), where the agent is prompted to adapt new tools that incorporates existing atomic
+						tools. Each intent LLM that are attached to the existing base APIs are fine-tunable, and they
+						can be tuned to be a more personalized version by adapting changes in the inherited API
+						class. In production, there could be potentially thousands of API scripts, whereas only a
+						minimal subset of those need to be tuned, for example, for people who only care about
+						lightning changes in a virtual architectural design environment, only the scripts that are
+						related to shaders need to be inherited. Hence, the intent LLMs can be better aligned to
+						follow personalized instructions than generally aligning to all sorts of user requirements.
+						An example of a intent LLM is in Figure 3.
+					</p>
+				</div>
+			</section>
+
+			<!-- 2.3 Interactive Code Execution LLM -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Interactive Code Execution LLM</h2>
+					</header>
+
+					<p>
+						An execution LLM controls how an API script should be used when receiving user instruc-
+						tions related to its component update, augmented with tools (functions) written in the given
+						script. In practice, we give it the header file (Terrain.h).
+					</p>
+					<p>
+						Different from a general instruct-tuned code generation model, an interactive code execution
+						LLM generates code via multi-turn conversation with the game engine and user feedback.
+						In short, as we modularize the API separation, each execution model can criticize the given
+						instruction for its game component by asking back the parent intent LLM for clarification in
+						code execution with unknown parameters. For example, to add trees in a Terrain component,
+						the user might want to further instructs their tree density and range requirements before
+						letting the model to proceed the code generation task. We collect feedback from each
+						execution LLM send them to the upper level to wait for the user or the controller with a
+						broader knowledge about all the APIs to respond. This is similar to ToT (Tree of Thought)
+						but optimized for ta-agent collaborationin our scenario.
+					</p>
+					<p>
+						The interactive code execution LLM is equipped with the operations to generate code,
+						incorporating feedback from the tools it is given from the intent LLM, or report the final
+						code it writes that is ready for execution.
+					</p>
+				</div>
+			</section>
+
+			<!-- 2.4 Agent Strategies -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Agent Strategies</h2>
+					</header>
+					<p>
+						A big advantage of the ALICE system is that it is orthogonal to popular agent strategies by
+						its nature of design. The operations that are primarily equipped to each LLM component
+						can be boosted by planning ahead, reasoning through, self-critic-ed, and virtually executed
+						as actions to better follow user instructions.
+					</p>
+					<p>
+						To use ReAct, for example, the intent LLM can be equipped with the RAG and communica-
+						tion tool with user to better fulfill user instruction.
+					</p>
+					<p>
+						Figure 4: ALICE example input and output. The ALICE (icon) result from left to right shows
+						the result of GPT-3.5 before, as fine-tuning progress, and after alignment. The ground truth
+						is not included in the training.
+					</p>
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer"><div class="inner">
+				<div class="flex">
+					<ul class="icons">
+						<!-- <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li> -->
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<!-- <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li> -->
+						<!-- <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li> -->
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+					</ul></div>
+			</div>
+		</footer>
+		<!-- <div class="copyright">
+			Site made with: <a href="https://templated.co/">TEMPLATED.CO</a>
+		</div> -->
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script><script src="assets/js/skel.min.js"></script><script src="assets/js/util.js"></script><script src="assets/js/main.js"></script></body></html>
