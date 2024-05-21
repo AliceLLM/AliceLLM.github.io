@@ -47,20 +47,20 @@
 						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
 							Copilot: this design allows users to input documentation comments and convert them into 
 							code. Users can modify, run, and debug the code as they would in typical software development 
-							processes, making it a highly controllable system.
+							processes, making it a highly <b>controllable</b> system.
 						</li>
 						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
 							Autonomous agents: this approach focuses on generating entire code scripts to fulfill
 							user instructions. Typically, models within this system interact and utilize tools
 							to search, execute, and debug the code they generate, continuing until a solution
 							is achieved or a maximum trial limit is reached. This method is considerably
-							uncontrollable due to minimal interaction between the user and the agent system.
+							<b>uncontrollable</b> due to minimal interaction between the user and the agent system.
 						</li>
 					</ul>
 					<p>
 						Bridging the functionalities of Copilot and Autonomous Agents, ALICE enables coding
-						in natural language and is specifically engineered to enhance efficiency in following in-
-						structions within interactive environments. Unlike autonomous agents, which operate
+						in natural language and is specifically engineered to enhance efficiency in following 
+						instructions within interactive environments. Unlike autonomous agents, which operate
 						independently of human input and learn from experiences to determine optimal actions,
 						ALICE actively identifies potential issues during execution and solicits clarifying questions.
 						Through iterative interactions, ALICE delivers results that are more precise and better
@@ -96,18 +96,18 @@
 
 					<p>We start by delineating what we mean by constructing a meta-agent collaboration. </p>
 					<p>
-						Existing multi-agent collaboration frameworks like AutoGenWu et al. (2023), MetaGPT
-						Hong et al. (2023a) and AutoGPT operate under the premise that each agent or LLM is
-						pre-defined to be equipped with specific roles, or instruction prompts that dictate their
-						responses to given instructions. These roles often include tool-use capabilities, and the
-						agents are designed by humans to communicate in specific ways. This design approach
-						relies heavily on carefully crafted prompts and does not adapt well to different environments.
-						Conversely, frameworks tailored for specific settings like Stanford Town Park et al. (2023a)
-						or GPT-engineer are overly specialized and fail to generalize across various domains.
+						Existing multi-agent collaboration frameworks like <a href="https://microsoft.github.io/autogen/">AutoGen</a>, 
+						<a href="https://www.deepwisdom.ai/">MetaGPT</a> and <a href="https://news.agpt.co/">AutoGPT</a> 
+						operate under the premise that each agent or LLM is pre-defined to be equipped with specific roles, 
+						or instruction prompts that dictate their responses to given instructions. 
+						These roles often include tool-use capabilities, and the agents are designed by humans to communicate in specific ways. 
+						This design approach relies heavily on carefully crafted prompts and does not adapt well to diverse environments.
+						Conversely, frameworks tailored for specific settings like <a href="https://github.com/joonspk-research/generative_agents">Stanford Town</a>,
+						<a href="https://voyager.minedojo.org/">Voyager</a> are environment-specialized and fail to generalize across various domains.
 					</p>
 					<p>
-						We propose a novel meta-agent collaboration framework as the follows. Specifically, we setup
-						a controller LLM with the following fixed operations that manage and interact with a suite of
+						We propose a novel <i>meta-agent collaboration framework</i> as the follows. Specifically, we setup
+						a controller LLM with the following fixed <i>operations</i> that manage and interact with a suite of
 						intention LLMs, which can be treated as general LLM agents seen in other frameworks.
 					</p>
 					<ul>
@@ -130,6 +130,9 @@
 						controller LLMs do not do any task, instead, they are communicators with other LLMs and
 						the user. An example of a controller LLM is in Figure 2.
 					</p>
+					<div class="image fit">
+						<img src="images/ALICE-Controller.png" alt="Pic 01" width="400">
+					</div>
 				</div>
 			</section>
 
@@ -146,7 +149,7 @@
 						and a execution LLM.
 					</p>
 					<p>
-						Game Components Physic engines usually use a component-based architecture, where
+						<b>Game Components</b><br> Physic engines usually use a component-based architecture, where
 						each object in the virtual scene can have various components attached to them that perform
 						operations in parallel. This modular approach allows developers to compose behavior and
 						properties by attaching different components to objects, such as renderers, scripts, colliders,
@@ -189,6 +192,9 @@
 						follow personalized instructions than generally aligning to all sorts of user requirements.
 						An example of a intent LLM is in Figure 3.
 					</p>
+					<div class="image fit">
+						<img src="images/ALICE-Intent.png" alt="Pic 01" width="400">
+					</div>
 				</div>
 			</section>
 
@@ -200,8 +206,8 @@
 					</header>
 
 					<p>
-						An execution LLM controls how an API script should be used when receiving user instruc-
-						tions related to its component update, augmented with tools (functions) written in the given
+						An execution LLM controls how an API script should be used when receiving user instructions 
+						related to its component update, augmented with tools (functions) written in the given
 						script. In practice, we give it the header file (Terrain.h).
 					</p>
 					<p>
@@ -214,7 +220,7 @@
 						letting the model to proceed the code generation task. We collect feedback from each
 						execution LLM send them to the upper level to wait for the user or the controller with a
 						broader knowledge about all the APIs to respond. This is similar to ToT (Tree of Thought)
-						but optimized for ta-agent collaborationin our scenario.
+						but optimized for <i>meta-agent collaboration</i> in our scenario.
 					</p>
 					<p>
 						The interactive code execution LLM is equipped with the operations to generate code,
@@ -233,15 +239,18 @@
 					<p>
 						A big advantage of the ALICE system is that it is orthogonal to popular agent strategies by
 						its nature of design. The operations that are primarily equipped to each LLM component
-						can be boosted by planning ahead, reasoning through, self-critic-ed, and virtually executed
+						can be boosted by planning ahead, reasoning through, self-critized, and virtually executed
 						as actions to better follow user instructions.
 					</p>
 					<p>
 						To use ReAct, for example, the intent LLM can be equipped with the RAG and communica-
 						tion tool with user to better fulfill user instruction.
 					</p>
+					<div class="image fit">
+						<img src="images/ALICE example.png" alt="Pic 01" width="400">
+					</div>
 					<p>
-						Figure 4: ALICE example input and output. The ALICE (icon) result from left to right shows
+						ALICE example input and output. The <i>ALICE (icon)</i> result from left to right shows
 						the result of GPT-3.5 before, as fine-tuning progress, and after alignment. The ground truth
 						is not included in the training.
 					</p>
