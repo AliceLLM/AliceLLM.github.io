@@ -1902,6 +1902,20 @@
 		-ms-justify-content: space-between;
 		justify-content: space-between;
 	}
+		.flex-row {
+			display: flex;
+			justify-content: space-between; /* Distributes items evenly with some space between them */
+			margin-bottom: 20px; /* Add some space between rows */
+		}
+		
+		.flex-col {
+			text-align: center; /* Centers images within each column */
+		}
+		
+		.logo-image {
+			width: 250px; /* Increase the size of the icons, adjust as needed */
+			height: auto; /* Maintains aspect ratio */
+		}
 
 		.flex.flex-2 article {
 			width: 47%;
