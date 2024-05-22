@@ -2749,13 +2749,14 @@
 			display: inline-block;
 			font-weight: 600;
 			height: inherit;
-			left: 0;
 			line-height: inherit;
 			margin: 0;
 			padding: 0;
 			position: absolute;
 			top: 0;
 			font-size: 1em;
+			left: 10%;
+			transform: translateY(-30%);
 		}
 
 		#header a {
