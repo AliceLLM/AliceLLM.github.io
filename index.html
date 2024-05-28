@@ -22,6 +22,16 @@
             display: inline-block;
             margin: 2%;
         }
+        @media screen and (min-width: 769px) {
+            .video-wrapper {
+                max-width: 48%;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .video-wrapper {
+                max-width: 100%;
+            }
+        }
 
     </style>
 	<body>
@@ -62,7 +72,7 @@
 						<div class="flex flex-2" style="margin-bottom: 1px;">
 
 							<article style="margin-bottom: 1px;">
-								<!-- <div class="video-wrapper"> -->
+								<div class="video-wrapper">
 									<div class="image fit" >
 										<div class="video-title">Before Alignment</div>
 										<iframe src="https://player.vimeo.com/video/949000408?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
@@ -70,11 +80,11 @@
 										</iframe>
 										<script src="https://player.vimeo.com/api/player.js"></script>
 									</div>
-								<!-- </div> -->
+								</div>
 							</article>
 
 							<article style="margin-bottom: 1px;">
-								<!-- <div class="video-wrapper"> -->
+								<div class="video-wrapper">
 									<div class="image fit">
 										<div class="video-title">After Alignment</div>
 										<iframe src="https://player.vimeo.com/video/949001083?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
@@ -82,7 +92,7 @@
 										</iframe>				
 										<script src="https://player.vimeo.com/api/player.js"></script>
 									</div>
-								<!-- </div> -->
+								</div>
 							</article>
 
 						</div>
