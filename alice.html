@@ -105,16 +105,16 @@
 					<ul>
 						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
 							Instruction Prompts as Agent Creation: by
-							employing a modular approach where differ-
-							ent agents are created to handle distinct parts
+							employing a modular approach where different 
+							agents are created to handle distinct parts
 							of the task sequence, ALICE achieves a level
 							of personalization and responsiveness that is
 							more faithful to the user's intentions.
 						</li>
 						<li style="text-indent: em; padding-left: 1em; margin-left: 1em;">
 							Tools as Agent Instruction: In ALICE, tools
-							(like RAG, execution and vision feedback) are not merely sup-
-							plementary; they are integral to how agents
+							(like RAG, execution and vision feedback) are not merely supplementary; 
+							they are integral to how agents
 							perceive and execute tasks. Tools can be used
 							to create other tools that affect how each agent
 							behave. Agent creation via prompt is also a
@@ -226,10 +226,10 @@
 						script. In practice, we give it the header file (Terrain.h).
 					</p>
 					<p>
-						Different from a general instruct-tuned code generation model, 
+						Different from a general instruction-tuned code generation model, 
 						an interactive code execution LLM
-						generates code via multi-turn conversation with
-						the game engine and user feedback. In short, as
+						generates code via multi-turn conversation feedback from
+						the game engine and the user. As
 						we modularize the API separation, each execution
 						model can criticize the given instruction for its
 						game component by asking back the parent intent
@@ -241,7 +241,7 @@
 						generation task. We collect feedback from each
 						execution LLM and send them to the upper level
 						to wait for the user or the controller with a broader
-						knowledge about all the APIs to respond.
+						knowledge about the APIs to respond.
 					</p>
 					<p>
 						The interactive code execution LLM is equipped with the operations to generate code,
@@ -265,14 +265,14 @@
 					</p>
 					<p>
 						To use <a href="https://react-lm.github.io/">ReAct (Yao et al., 2023)</a>, for example, the intent LLM 
-						can be equipped with the following action space: reasoning trace/thought,
+						can be equipped with the following action space (tools): reasoning trace/thought,
 						retrieving relevant targets/components in the simulated environment, 
 						communication with the user, and finally, answering the question. 
 						Essentially, at each trace stage, the agent can either make a reasoning thought, 
 						generate code after retrieving relevant
 						components to the task at hand, communicate with
 						the user to learn further specifications, or provide a
-						final answer.
+						final answer. The tools it have is controlled by its upper-level controller LLM for efficiency and flexibility.
 					</p>
 					<p>
 						ALICE example input and output. The <i>ALICE (icon)</i> result from left to right shows
