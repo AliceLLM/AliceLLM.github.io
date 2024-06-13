@@ -1,23 +1,24 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>The ALICE Project - About</title>
-		<meta charset="utf-8">
-		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="assets/css/main.css">
-		<link rel="icon" type="image/x-icon" href="images/Alice icon.ico">
-	</head>
-	<style>
+    <head>
+        <title>The ALICE Project - About</title>
+        <meta charset="utf-8">
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="icon" type="image/x-icon" href="images/Alice icon.ico">
+    </head>
+    <style>
         .video-container {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-		.video-title {
-			font-size: x-large;
-			margin: 2%;
-			text-align: center;
-		}
+        .video-title {
+            font-size: x-large;
+            margin: 2%;
+            text-align: center;
+        }
         .video-wrapper {
             position: relative;
             display: inline-block;
@@ -42,127 +43,115 @@
                 width: 100%;
                 height: auto;
             }
+            #banner h1, #banner p {
+                font-size: smaller; /* Smaller font size */
+            }
+            #banner {
+                padding: 20px 10px; /* Smaller padding */
+            }
         }
-
-
     </style>
-	<body>
+    <body>
 
-		<!-- Header -->
-		<header id="header">
-			<div class="inner">
-				<div class="header-left logo">
-					<img src="images/Alice Logo.jpg" alt="Pic 01" width="80" height="80">
-				</div>
-				<nav id="nav" class="header-right">
-					<a href="index.html">About</a>
-					<a href="alice.html">ALICE</a>
-					<a href="documentation.html">Documentation</a>
-					<a href="team.html">Team</a>
-				</nav>
-				<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-			</div>
-		</header>
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+                <div class="header-left logo">
+                    <img src="images/Alice Logo.jpg" alt="Pic 01" width="80" height="80">
+                </div>
+                <nav id="nav" class="header-right">
+                    <a href="index.html">About</a>
+                    <a href="alice.html">ALICE</a>
+                    <a href="documentation.html">Documentation</a>
+                    <a href="team.html">Team</a>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+            </div>
+        </header>
 
-		<!-- Banner -->
-		<section id="banner">
-			<h1>Welcome to ALICE</h1>
-			<p>ALICE: Aligning Language models with Interactive Code Execution</p>
-		</section>
+        <!-- Banner -->
+        <section id="banner">
+            <h1>Welcome to ALICE</h1>
+            <p>ALICE: Aligning Language models with Interactive Code Execution</p>
+        </section>
 
-		<!-- Main -->
-		<section id="three" class="wrapper">
-			<div class="inner">
-				<header class="align-center">
-					<h2>ALICE</h2>
-				</header>
+        <!-- Main -->
+        <section id="three" class="wrapper">
+            <div class="inner">
+                <header class="align-center">
+                    <h2>ALICE</h2>
+                </header>
 
-				<section id="main">
-					<div class="inner">
-					<section id="three" class="wrapper">
-						<!-- <div class="inner"> -->
-						<div class="flex flex-2" style="margin-bottom: 1px;">
+                <section id="main">
+                    <div class="inner">
+                        <div class="flex flex-2" style="margin-bottom: 1px;">
+                            <article style="margin-bottom: 1px;">
+                                <div class="image fit">
+                                    <div class="video-title">Before Alignment</div>
+                                    <div class="video-container">
+                                        <iframe src="https://player.vimeo.com/video/949000408?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="600" height="300"></iframe>
+                                    </div>
+                                    <script src="https://player.vimeo.com/api/player.js"></script>
+                                </div>
+                            </article>
 
-							<article style="margin-bottom: 1px;">
+                            <article style="margin-bottom: 1px;">
+                                <div class="image fit">
+                                    <div class="video-title">After Alignment</div>
+                                    <div class="video-container">
+                                        <iframe src="https://player.vimeo.com/video/949001083?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="600" height="300"></iframe>
+                                    </div>
+                                    <script src="https://player.vimeo.com/api/player.js"></script>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
 
-								<div class="image fit">
-									<div class="video-title">Before Alignment
-								</div>
-								<div class="video-container">
-									<iframe src="https://player.vimeo.com/video/949000408?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-									alt="Pic 01" width="600" height="300">
-									</iframe>
-								</div>
-								<script src="https://player.vimeo.com/api/player.js"></script>
-								</div>
-							</article>
+                <p>We develop a meta-agent collaboration system: ALICE, that generates high-quality data through multi-turn interactions and feedback.
+                    It produces data with traces from agent strategies like ReAct and Reflexion, which are scarce but offer potential for aligning advanced LLMs.
+                </p>
+                <header class="align-center">
+                    <div class="image">
+                        <img src="images/ALICE example.png" alt="Pic 01" width="900" style="max-width: 100%; height: auto;">
+                    </div>
+                </header>
+                <p>An Overview of the ALICE Workflow. 
+                    Fine-Tunable models are labeled with the fire symbols, and frozen models are labeled with the snow symbols. 
+                    For components with different colors, purple refers to <b><font color="purple">structured arguments or configurations</font></b> in the game engine, 
+                    orange refers to <b><font color="orange">textual prompts or examples</font></b>, blue refers to <b><font color="blue">different LLMs</font></b>, 
+                    red refers to <b><font color="red">textual data</font></b> generated from the model or provided by users, 
+                    and green refers to that <b><font color="green">the program successfully executes</font></b>.</p>
+                <header class="align-center">
+                    <div class="image">
+                        <img src="images/ALICE Pipeline.png" alt="Pic 01" width="900" style="max-width: 100%; height: auto;">
+                    </div>
+                </header>
+            </div>
+        </section>
 
-							<article style="margin-bottom: 1px;">
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <div class="flex">
+                    <div class="footer-content">
+                        <h2>Connect with Us</h2>
+                        <p>Follow us on GitHub and social media to stay updated with our latest news and offers!</p>
+                        <p><i><b>We are also looking for brilliant people to join the ALICE project, connect with us for more details!</b></i></p>
+                        <ul class="icons">
+                            <li><a href="https://github.com/yang-su2000/Voice2Action" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                            <li><a href="https://www.linkedin.com/groups/13044244/" class="icon fa-linkedin"><span the="label">LinkedIn</span></a></li>
+                            <li><a href="mailto:ys724@cornell.edu" class="icon fa-envelope"><span class="label">Email</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-								<div class="image fit">
-									<div class="video-title">After Alignment
-								</div>
-								<div class="video-container">
-									<iframe src="https://player.vimeo.com/video/949001083?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-									alt="Pic 01" width="600" height="300">
-									</iframe>
-								</div>			
-								<script src="https://player.vimeo.com/api/player.js"></script>
-								</div>
-							</article>
-
-						</div>
-					</section>
-				</div>
-				</section>
-
-
-				<p>We develop a meta-agent collaboration system: ALICE, that generates high-quality data through multi-turn interactions and feedback.
-					It produces data with traces from agent strategies like ReAct and Reflexion, which are scarce but offer potential for aligning advanced LLMs.
-				</p>
-				<header class="align-center">
-					<div class="image">
-						<img src="images/ALICE example.png" alt="Pic 01" width="900" style="max-width: 100%; height: auto;">
-					</div>
-				</header>
-				<p>An Overview of the ALICE Workflow. 
-					Fine-Tunable models are labeled with the fire symbols, and frozen models are labeled with the snow symbols. 
-					For components with different colors, purple refers to <b><font color="purple">structured arguments or configurations</font></b> in the game engine, 
-					orange refers to <b><font color="orange">textual prompts or examples</font></b>, blue refers to <b><font color="blue">different LLMs</font></b>, 
-					red refers to <b><font color="red">textual data</font></b> generated from the model or provided by users, 
-					and green refers to that <b><font color="green">the program successfully executes</font></b>.</p>
-				<header class="align-center">
-					<div class="image">
-						<img src="images/ALICE Pipeline.png" alt="Pic 01" width="900" style="max-width: 100%; height: auto;">
-					</div>
-				</header>
-			</div>
-		</section>
-
-		<!-- Footer -->
-		<footer id="footer">
-			<div class="inner">
-				<div class="flex">
-					<div class="footer-content">
-						<h2>Connect with Us</h2>
-						<p>Follow us on GitHub and social media to stay updated with our latest news and offers!</p>
-						<p><i><b>We are also looking for brilliant people to join the ALICE project, connect with us for more details!</b></i></p>
-						<ul class="icons">
-							<li><a href="https://github.com/yang-su2000/Voice2Action" class="icon fa-github"><span class="label">GitHub</span></a></li>
-							<li><a href="https://www.linkedin.com/groups/13044244/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="mailto:ys724@cornell.edu" class="icon fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-		<!-- <div class="copyright">
-			Site made with: <a href="https://templated.co/">TEMPLATED.CO</a>
-		</div> -->
-
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script><script src="assets/js/skel.min.js"></script>
-		<script src="assets/js/util.js"></script><script src="assets/js/main.js"></script>
-	</body>
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
