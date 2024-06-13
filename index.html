@@ -8,49 +8,53 @@
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="icon" type="image/x-icon" href="images/Alice icon.ico">
     </head>
-    <style>
-        .video-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .video-title {
-            font-size: x-large;
-            margin: 2%;
-            text-align: center;
-        }
-        .video-wrapper {
-            position: relative;
-            display: inline-block;
-            margin: 2%;
-        }
-
-        .flex {
-            display: flex;
-            gap: 20px;
-        }
-        @media screen and (max-width: 768px) {
-            .flex-2 {
-                flex-direction: column;
-                align-items: center;
-            }
-            .flex-2 article {
-                width: 100%;
-                max-width: 600px;
-                margin-bottom: 30px;
-            }
-            .flex-2 iframe {
-                width: 100%;
-                height: auto;
-            }
-            #banner h1, #banner p {
-                font-size: smaller; /* Smaller font size */
-            }
-            #banner {
-                padding: 20px 10px; /* Smaller padding */
-            }
-        }
-    </style>
+	<style>
+		.video-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.video-title {
+			font-size: x-large;
+			margin: 2%;
+			text-align: center;
+		}
+		.video-wrapper {
+			position: relative;
+			display: inline-block;
+			margin: 2%;
+		}
+	
+		.flex {
+			display: flex;
+			gap: 20px;
+		}
+		@media screen and (max-width: 768px) {
+			.flex-2 {
+				flex-direction: column;
+				align-items: center;
+			}
+			.flex-2 article {
+				width: 100%;
+				max-width: 600px;
+				margin-bottom: 30px;
+			}
+			.flex-2 iframe {
+				width: 100%;
+				height: auto;
+			}
+			#banner h1, #banner p {
+				font-size: smaller; /* 更小的字體尺寸 */
+			}
+			#banner {
+				padding: 20px 10px; /* 更小的填充 */
+				text-align: center; /* 居中文本 */
+			}
+			#header .header-left.logo {
+				display: none; /* 在小屏幕上隱藏標誌 */
+			}
+		}
+	</style>
     <body>
 
         <!-- Header -->
